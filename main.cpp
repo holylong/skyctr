@@ -12,7 +12,10 @@
 
 //read build tool file to memory and save to cmake file
 
+using namespace std;
+
 int main(int argc, char* argv[])
 {
+  cout << "" << endl;
   return 0;
 }
