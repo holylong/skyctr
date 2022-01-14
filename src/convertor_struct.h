@@ -1,3 +1,6 @@
+#ifndef _CONVERTOR_STRUCT_H_
+#define _CONVERTOR_STRUCT_H_
+
 /**
  * @file SkyConvertorStruct.h
  * @author your name (you@domain.com)
@@ -34,3 +37,5 @@ namespace sky{
       std::string              m_installpath;
   };
 }
+
+#endif //_CONVERTOR_STRUCT_H_
