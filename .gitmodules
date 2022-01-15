@@ -1,0 +1,33 @@
+[submodule "3rdparty/gflags"]
+	path = 3rdparty/gflags
+	url = https://github.com/gflags/gflags.git
+[submodule "3rdparty/tinyxml"]
+	path = 3rdparty/tinyxml
+	url = https://github.com/leethomason/tinyxml2
+[submodule "3rdparty/libusb"]
+	path = 3rdparty/libusb
+	url = https://github.com/libusb/libusb
+[submodule "3rdparty/TranslucentTB"]
+	path = 3rdparty/TranslucentTB
+	url = https://github.com/TranslucentTB/TranslucentTB
+[submodule "3rdparty/darknet"]
+	path = 3rdparty/darknet
+	url = https://github.com/AlexeyAB/darknet
+[submodule "3rdparty/meshoptimizer"]
+	path = 3rdparty/meshoptimizer
+	url = https://github.com/zeux/meshoptimizer
+[submodule "3rdparty/SDL"]
+	path = 3rdparty/SDL
+	url = https://github.com/libsdl-org/SDL
+[submodule "3rdparty/SFML"]
+	path = 3rdparty/SFML
+	url = https://github.com/SFML/SFML
+[submodule "3rdparty/nginx"]
+	path = 3rdparty/nginx
+	url = https://github.com/nginx/nginx
+[submodule "3rdparty/imgui"]
+	path = 3rdparty/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "3rdparty/libjson-rpc-cpp"]
+	path = 3rdparty/libjson-rpc-cpp
+	url = https://github.com/cinemast/libjson-rpc-cpp
