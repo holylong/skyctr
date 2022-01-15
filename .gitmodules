@@ -31,3 +31,15 @@
 [submodule "3rdparty/libjson-rpc-cpp"]
 	path = 3rdparty/libjson-rpc-cpp
 	url = https://github.com/cinemast/libjson-rpc-cpp
+[submodule "3rdparty/openh264"]
+	path = 3rdparty/openh264
+	url = https://github.com/cisco/openh264
+[submodule "3rdparty/libhv"]
+	path = 3rdparty/libhv
+	url = https://github.com/ithewei/libhv
+[submodule "3rdparty/wangle"]
+	path = 3rdparty/wangle
+	url = https://github.com/facebook/wangle
+[submodule "3rdparty/libevent"]
+	path = 3rdparty/libevent
+	url = https://github.com/libevent/libevent
