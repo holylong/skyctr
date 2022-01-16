@@ -1,6 +1,2 @@
 .vscode 
-https://github.com/thedmd/imgui-node-editor
-https://github.com/libuv/libuv
-https://github.com/CedricGuillemet/ImGuizmo
-https://github.com/abseil/abseil-cppbuild_ninja
 build_ninja

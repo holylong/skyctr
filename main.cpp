@@ -10,11 +10,14 @@
  */
 #include <iostream>
 #include <gflags/gflags.h>
+#include <skyctr_factory.hpp>
+#include <skyctr_manager.hpp>
 
 //read build tool file to memory and save to cmake file
 
 using namespace std;
 using namespace gflags;
+using namespace sky::core;
 
 DEFINE_string(origin, "make", "origin build file type");
 DEFINE_string(path, "makefile", "origin file path");
@@ -34,17 +37,6 @@ std::string& getHelp() {
   return g_help;
 }
 
-/**
- * 
- */
-int ParseMesonFile(string path){
-  return 0;
-}
-
-int DumpCmakeFile(string out){
-  return 0;
-}
-
 int main(int argc, char* argv[])
 {
   cout << "skyctr convertor enter" << endl;
@@ -56,17 +48,21 @@ int main(int argc, char* argv[])
   cout << "out = " << FLAGS_out << endl;
   cout << "gen = " << FLAGS_gen << endl;
 
+  SkyctrFactory skyctrFactory;
+
+  SkyctrManager *manager = skyctrFactory.makeSkyctrManager();
+
   //parse origin file
   if(FLAGS_origin == "make"){
     
   }else if(FLAGS_origin == "meson"){
-    ParseMesonFile(FLAGS_path);
+    manager->ParseMesonFile(FLAGS_path);
   }else if(FLAGS_origin == "vcxproj"){
-
+    manager->ParseVcxprojFile(FLAGS_path);
   }
 
   if(FLAGS_gen == "cmake"){
-    DumpCmakeFile(FLAGS_out)
+    manager->DumpCmakeFile(FLAGS_out);
   }
 
   //dump to dest file
