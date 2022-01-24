@@ -12,12 +12,16 @@
 #include <gflags/gflags.h>
 #include <skyctr_factory.hpp>
 #include <skyctr_manager.hpp>
-
+#include <easylogging++.h>
 //read build tool file to memory and save to cmake file
 
 using namespace std;
 using namespace gflags;
 using namespace sky::core;
+
+INITIALIZE_EASYLOGGINGPP
+
+
 
 DEFINE_string(origin, "make", "origin build file type");
 DEFINE_string(path, "makefile", "origin file path");
@@ -26,6 +30,17 @@ DEFINE_string(gen, "cmake", "to build file");
 
 static std::string g_version;
 static std::string g_help;
+
+
+void initLogger()
+{
+  el::Loggers::reconfigureAllLoggers(el::ConfigurationType::ToStandardOutput, "false");
+  el::base::SubsecondPrecision ssPrec(3);
+  std::cout << "Starting program " << el::base::utils::DateTime::getDateTime("%h:%m:%s", &ssPrec) << std::endl;
+  LOG(INFO) << "webcam logging init";
+  std::cout << "Finished program - cleaning! " << el::base::utils::DateTime::getDateTime("%h:%m:%s", &ssPrec) << std::endl;
+}
+
 
 std::string& getVersion() {
   g_version = "0.0.1";
@@ -40,6 +55,7 @@ std::string& getHelp() {
 int main(int argc, char* argv[])
 {
   cout << "skyctr convertor enter" << endl;
+  initLogger();
   SetVersionString(getVersion());
   SetUsageMessage(getHelp());
   ParseCommandLineFlags(&argc, &argv, true);
@@ -51,7 +67,7 @@ int main(int argc, char* argv[])
   SkyctrFactory skyctrFactory;
 
   SkyctrManager *manager = skyctrFactory.makeSkyctrManager();
-
+  
   //parse origin file
   if(FLAGS_origin == "make"){
     

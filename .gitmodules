@@ -55,3 +55,12 @@
 [submodule "3rdparty/abseil-cpp"]
 	path = 3rdparty/abseil-cpp
 	url = https://github.com/abseil/abseil-cpp
+[submodule "3rdparty/folly"]
+	path = 3rdparty/folly
+	url = https://github.com/facebook/folly
+[submodule "3rdparty/easyloggingpp"]
+	path = 3rdparty/easyloggingpp
+	url = https://github.com/easylogging/easyloggingpp
+[submodule "3rdparty/json"]
+	path = 3rdparty/json
+	url = https://github.com/nlohmann/json
