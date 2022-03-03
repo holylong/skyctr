@@ -18,9 +18,21 @@
 
 namespace sky{
   namespace core{
+      typedef enum {
+        Type_Error = -1,
+        Type_Shared_Library = 0,
+        Type_Static_Library = 1,
+        Type_Exec = 1
+      }TargetType;
+
+      typedef struct _TargetInfo{
+        TargetType _target_type;
+        std::string _target_name;
+      }TargetInfo;
 
       class ConvertorStruct{
       public:
+        ConvertorStruct();
         /**project name*/
         std::string              m_projectname;
         /**cxxflag**/
@@ -37,6 +49,8 @@ namespace sky{
         std::vector<std::string> m_libpath;
         /**链接库**/
         std::vector<std::string> m_library;
+        /**目标文件**/
+        //std::vector<TargetInfo> m_targets;
         /**设置安装目录**/
         std::string              m_installpath;
     };

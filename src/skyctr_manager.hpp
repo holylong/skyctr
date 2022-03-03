@@ -3,6 +3,8 @@
 #include <iostream>
 
 #include <skyctr_factory.hpp>
+#include <skyctr_parser.hpp>
+#include <skyctr_generator.hpp>
 
 namespace sky{
     namespace core{
@@ -13,6 +15,13 @@ namespace sky{
                 SkyStatus ParseMesonFile(std::string in);
                 SkyStatus ParseVcxprojFile(std::string in);
                 SkyStatus DumpCmakeFile(std::string in);
+
+            private:
+                //源解决方案解析器
+                SkyctrParser _parser;
+                //目标解决方案生成器
+                SkyctrGenerator _generator;
+                
         };
     }
 }
