@@ -64,3 +64,9 @@
 [submodule "3rdparty/json"]
 	path = 3rdparty/json
 	url = https://github.com/nlohmann/json
+[submodule "3rdparty/spdlog"]
+	path = 3rdparty/spdlog
+	url = git@github.com:gabime/spdlog
+[submodule "3rdparty/cmake"]
+	path = 3rdparty/cmake
+	url = git@github.com:Kitware/cmake
