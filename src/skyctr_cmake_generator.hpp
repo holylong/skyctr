@@ -5,7 +5,8 @@
 
 namespace sky{
     namespace core{
-        class SkyctrCmakeGenerator : public SkyctrGenerator{
+        template<typename T>
+        class SkyctrCmakeGenerator : public SkyctrGenerator<T>{
 
         };
     }

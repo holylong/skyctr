@@ -5,7 +5,8 @@
 
 namespace sky{
     namespace core{
-        class SkyctrMesonParser : public SkyctrParser{
+        template<typename T>
+        class SkyctrMesonParser : public SkyctrParser<T>{
 
         };
     }

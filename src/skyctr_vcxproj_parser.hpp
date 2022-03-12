@@ -5,7 +5,8 @@
 
 namespace sky{
     namespace core{
-        class SkyctrVcxprojParser : public SkyctrParser{
+        template<typename T>
+        class SkyctrVcxprojParser : public SkyctrParser<T>{
 
         };
     }

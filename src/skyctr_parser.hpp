@@ -5,8 +5,15 @@
 
 namespace sky{
     namespace core{
-        class SkyctrParser{
 
+        template<typename T>
+        class SkyctrParser{
+            public:
+                T getName(){return _name;}
+
+
+            private:
+                T _name
         };
     }
 }
