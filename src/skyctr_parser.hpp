@@ -13,7 +13,7 @@ namespace sky{
 
 
             private:
-                T _name
+                T _name;
         };
     }
 }

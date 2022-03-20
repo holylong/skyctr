@@ -18,9 +18,9 @@ namespace sky{
 
             private:
                 //源解决方案解析器
-                SkyctrParser _parser;
+                SkyctrParser<int> _parser;
                 //目标解决方案生成器
-                SkyctrGenerator _generator;
+                SkyctrGenerator<int> _generator;
                 
         };
     }

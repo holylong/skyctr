@@ -8,8 +8,9 @@
 
 namespace sky{
     namespace core{
+        template<typename T>
         class SkyctrGenerator{
-
+            T _name;
         };
     }
 }
