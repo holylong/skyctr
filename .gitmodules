@@ -1,69 +1,69 @@
 [submodule "3rdparty/gflags"]
 	path = 3rdparty/gflags
-	url = https://github.com/gflags/gflags.git
+	url = git@github.com:gflags/gflags.git
 [submodule "3rdparty/tinyxml"]
 	path = 3rdparty/tinyxml
-	url = https://github.com/leethomason/tinyxml2
+	url = git@github.com:leethomason/tinyxml2
 [submodule "3rdparty/libusb"]
 	path = 3rdparty/libusb
-	url = https://github.com/libusb/libusb
+	url = git@github.com:libusb/libusb
 [submodule "3rdparty/TranslucentTB"]
 	path = 3rdparty/TranslucentTB
-	url = https://github.com/TranslucentTB/TranslucentTB
+	url = git@github.com:TranslucentTB/TranslucentTB
 [submodule "3rdparty/darknet"]
 	path = 3rdparty/darknet
-	url = https://github.com/AlexeyAB/darknet
+	url = git@github.com:AlexeyAB/darknet
 [submodule "3rdparty/meshoptimizer"]
 	path = 3rdparty/meshoptimizer
-	url = https://github.com/zeux/meshoptimizer
+	url = git@github.com:zeux/meshoptimizer
 [submodule "3rdparty/SDL"]
 	path = 3rdparty/SDL
-	url = https://github.com/libsdl-org/SDL
+	url = git@github.com:libsdl-org/SDL
 [submodule "3rdparty/SFML"]
 	path = 3rdparty/SFML
-	url = https://github.com/SFML/SFML
+	url = git@github.com:SFML/SFML
 [submodule "3rdparty/nginx"]
 	path = 3rdparty/nginx
-	url = https://github.com/nginx/nginx
+	url = git@github.com:nginx/nginx
 [submodule "3rdparty/imgui"]
 	path = 3rdparty/imgui
-	url = https://github.com/ocornut/imgui
+	url = git@github.com:ocornut/imgui
 [submodule "3rdparty/libjson-rpc-cpp"]
 	path = 3rdparty/libjson-rpc-cpp
-	url = https://github.com/cinemast/libjson-rpc-cpp
+	url = git@github.com:cinemast/libjson-rpc-cpp
 [submodule "3rdparty/openh264"]
 	path = 3rdparty/openh264
-	url = https://github.com/cisco/openh264
+	url = git@github.com:cisco/openh264
 [submodule "3rdparty/libhv"]
 	path = 3rdparty/libhv
-	url = https://github.com/ithewei/libhv
+	url = git@github.com:ithewei/libhv
 [submodule "3rdparty/wangle"]
 	path = 3rdparty/wangle
-	url = https://github.com/facebook/wangle
+	url = git@github.com:facebook/wangle
 [submodule "3rdparty/libevent"]
 	path = 3rdparty/libevent
-	url = https://github.com/libevent/libevent
+	url = git@github.com:libevent/libevent
 [submodule "3rdparty/libuv"]
 	path = 3rdparty/libuv
-	url = https://github.com/libuv/libuv
+	url = git@github.com:libuv/libuv
 [submodule "3rdparty/imgui-node-editor"]
 	path = 3rdparty/imgui-node-editor
-	url = https://github.com/thedmd/imgui-node-editor
+	url = git@github.com:thedmd/imgui-node-editor
 [submodule "3rdparty/ImGuizmo"]
 	path = 3rdparty/ImGuizmo
-	url = https://github.com/CedricGuillemet/ImGuizmo
+	url = git@github.com:CedricGuillemet/ImGuizmo
 [submodule "3rdparty/abseil-cpp"]
 	path = 3rdparty/abseil-cpp
-	url = https://github.com/abseil/abseil-cpp
+	url = git@github.com:abseil/abseil-cpp
 [submodule "3rdparty/folly"]
 	path = 3rdparty/folly
-	url = https://github.com/facebook/folly
+	url = git@github.com:facebook/folly
 [submodule "3rdparty/easyloggingpp"]
 	path = 3rdparty/easyloggingpp
-	url = https://github.com/easylogging/easyloggingpp
+	url = git@github.com:easylogging/easyloggingpp
 [submodule "3rdparty/json"]
 	path = 3rdparty/json
-	url = https://github.com/nlohmann/json
+	url = git@github.com:nlohmann/json
 [submodule "3rdparty/spdlog"]
 	path = 3rdparty/spdlog
 	url = git@github.com:gabime/spdlog
