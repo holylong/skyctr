@@ -61,11 +61,13 @@ int main(int argc, char* argv[])
   
   //parse origin file
   if(FLAGS_origin == "make"){
-    
+    manager->ParseMakeFile(FLAGS_path);
   }else if(FLAGS_origin == "meson"){
     manager->ParseMesonFile(FLAGS_path);
   }else if(FLAGS_origin == "vcxproj"){
     manager->ParseVcxprojFile(FLAGS_path);
+  }else if(FLAGS_origin == "ninja"){
+    manager->ParseNinjaFile(FLAGS_path);
   }
 
   if(FLAGS_gen == "cmake"){

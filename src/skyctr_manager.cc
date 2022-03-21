@@ -15,7 +15,12 @@ namespace sky{
 
         }
 
-        
+        /**
+         * @brief 解析meson.build
+         * 
+         * @param in 
+         * @return SkyStatus 
+         */
         SkyStatus SkyctrManager::ParseMesonFile(std::string in){
             ifstream ifs(in);
             if(ifs.is_open()){
@@ -42,11 +47,55 @@ namespace sky{
         }
 
         
+        /**
+         * @brief 解析msvc sln
+         * 
+         * @param in 
+         * @return SkyStatus 
+         */
         SkyStatus SkyctrManager::ParseVcxprojFile(std::string in){
             return Status_Ok;
         }
 
-        
+        /**
+         * @brief 解析makefile
+         * 
+         * @param in 
+         * @return SkyStatus 
+         */
+        SkyStatus SkyctrManager::ParseMakeFile(std::string in)
+        {
+            return Status_Ok;
+        }
+
+        /**
+         * @brief parse ninja.build
+         * 
+         * @param in 
+         * @return SkyStatus 
+         */
+        SkyStatus SkyctrManager::ParseNinjaFile(std::string in)
+        {
+            return Status_Ok;
+        }
+
+        /**
+         * @brief 解析bazel
+         * 
+         * @param in 
+         * @return SkyStatus 
+         */
+        SkyStatus SkyctrManager::ParseBazelFile(std::string in)
+        {
+            return Status_Ok;
+        }
+
+        /**
+         * @brief 生成cmakelists.txt
+         * 
+         * @param in 
+         * @return SkyStatus 
+         */
         SkyStatus SkyctrManager::DumpCmakeFile(std::string in){
             return Status_Ok;
         }

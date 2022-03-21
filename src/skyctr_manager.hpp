@@ -14,7 +14,12 @@ namespace sky{
                 
                 SkyStatus ParseMesonFile(std::string in);
                 SkyStatus ParseVcxprojFile(std::string in);
+                SkyStatus ParseMakeFile(std::string in);
+                SkyStatus ParseNinjaFile(std::string in);
+                SkyStatus ParseBazelFile(std::string in);
+                
                 SkyStatus DumpCmakeFile(std::string in);
+                
 
             private:
                 //源解决方案解析器

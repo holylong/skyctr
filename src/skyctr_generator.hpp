@@ -10,6 +10,9 @@ namespace sky{
     namespace core{
         template<typename T>
         class SkyctrGenerator{
+        public:
+            T getName(){return _name;}
+        private:
             T _name;
         };
     }
