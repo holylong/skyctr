@@ -5,6 +5,9 @@ project(skyctr)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/gflags)
 # add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/easyloggingpp)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/spdlog)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/json)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/jsoncpp)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/tinyxml)
 
 file(GLOB skyctr_core_SRC src/convertor_struct.hpp
                           src/convertor_struct.cc
@@ -24,6 +27,14 @@ file(GLOB skyctr_core_SRC src/convertor_struct.hpp
                           src/skyctr_bazel_generator.cc
                           src/skyctr_meson_generator.hpp
                           src/skyctr_meson_generator.cc
+                          src/skyctr_meson_parser.hpp
+                          src/skyctr_meson_parser.cc
+                          src/skyctr_gn_generator.hpp
+                          src/skyctr_gn_generator.cc
+                          src/skyctr_gn_parser.hpp
+                          src/skyctr_gn_parser.cc
+                          src/skyctr_parser.cc
+                          src/skyctr_parser.hpp
                           main.cpp)
 
 
