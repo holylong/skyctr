@@ -2,6 +2,8 @@
 #define _SKY_CTR_PARSER_H_
 
 // #include <skyctr_core.hpp>
+#include <skyctr_factory.hpp>
+#include <iostream>
 
 namespace sky{
     namespace core{
@@ -10,6 +12,8 @@ namespace sky{
         class SkyctrParser{
             public:
                 T getName(){return _name;}
+
+                virtual SkyStatus ParseFile(const std::string path) = 0;
 
 
             private:

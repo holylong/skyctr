@@ -5,6 +5,7 @@
 #include <skyctr_factory.hpp>
 #include <skyctr_parser.hpp>
 #include <skyctr_generator.hpp>
+#include <memory>
 
 namespace sky{
     namespace core{
@@ -23,7 +24,7 @@ namespace sky{
 
             private:
                 //源解决方案解析器
-                SkyctrParser<int> _parser;
+                std::shared_ptr<SkyctrParser<int>> _parser;
                 //目标解决方案生成器
                 SkyctrGenerator<int> _generator;
                 

@@ -5,9 +5,10 @@
 
 namespace sky{
     namespace core{
-        template<typename T>
-        class SkyctrMesonParser : public SkyctrParser<T>{
-
+        //template<typename T>
+        class SkyctrMesonParser : public SkyctrParser<int>{
+        public:
+            virtual SkyStatus ParseFile(const std::string path);
         };
     }
 }

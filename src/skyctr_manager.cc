@@ -4,6 +4,8 @@
 #include <sstream>
 #include <streambuf>
 #include <spdlog/spdlog.h>
+#include <skyctr_vcxproj_parser.hpp>
+#include <skyctr_meson_parser.hpp>
 
 using namespace std;
 
@@ -43,6 +45,8 @@ namespace sky{
                 spdlog::info("origin content{}", str);
                 ifs.close();
             }
+
+            _parser = std::make_shared<SkyctrMesonParser>();
             return Status_Ok;
         }
 
@@ -54,6 +58,7 @@ namespace sky{
          * @return SkyStatus 
          */
         SkyStatus SkyctrManager::ParseVcxprojFile(std::string in){
+            _parser = std::make_shared<SkyctrVcxprojParser>();
             return Status_Ok;
         }
 

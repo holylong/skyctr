@@ -7,6 +7,9 @@
  * 
  * @copyright Copyright (c) 2022
  * 
+ * 
+ * 
+ * 
  */
 #include <iostream>
 #include <gflags/gflags.h>
@@ -24,8 +27,8 @@ using namespace sky::core;
 
 
 
-DEFINE_string(origin, "make", "origin build file type");
-DEFINE_string(path, "makefile", "origin file path");
+DEFINE_string(origin, "vcxproj", "origin build file type");
+DEFINE_string(path, "All.vcxproj", "origin file path");
 DEFINE_string(out, "./", "output dir");
 DEFINE_string(gen, "cmake", "to build file");
 

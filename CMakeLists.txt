@@ -23,6 +23,8 @@ file(GLOB skyctr_core_SRC src/convertor_struct.hpp
                           src/skyctr_ninja_generator.cc
                           src/skyctr_vcxproj_generator.hpp
                           src/skyctr_vcxproj_generator.cc
+                          src/skyctr_vcxproj_parser.hpp
+                          src/skyctr_vcxproj_parser.cc
                           src/skyctr_bazel_generator.hpp
                           src/skyctr_bazel_generator.cc
                           src/skyctr_meson_generator.hpp
