@@ -74,7 +74,7 @@ namespace sky{
             //_parser->ParseFile("a.txt");
             _parser = std::make_unique<SkyctrVcxprojParser>();
             _parser->PrintName();
-            _parser->ParseFile("a.txt");
+            _parser->ParseFile(in);
             return Status_Ok;
         }
 
