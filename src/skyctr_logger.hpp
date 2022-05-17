@@ -23,7 +23,7 @@ namespace sky{
     }
 
     void LoggerTest(){
-        spdlog::info("Welcome to spdlog!");
+        spdlog::info("Welcome to skyctr!");
         spdlog::error("Some error message with arg: {}", 1);
         
         spdlog::warn("Easy padding in numbers like {:08d}", 12);

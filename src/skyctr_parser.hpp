@@ -13,6 +13,8 @@ namespace sky{
             public:
                 T getName(){return _name;}
 
+                void PrintName() { std::cout << "type name:" << typeid(T).name() << std::endl; }
+
                 virtual SkyStatus ParseFile(const std::string path) = 0;
 
 

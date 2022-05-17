@@ -37,6 +37,10 @@ file(GLOB skyctr_core_SRC src/convertor_struct.hpp
                           src/skyctr_gn_parser.cc
                           src/skyctr_parser.cc
                           src/skyctr_parser.hpp
+                          src/skyctr_xml_parser.cc
+                          src/skyctr_xml_parser.hpp
+                          src/skyctr_json_parser.cc
+                          src/skyctr_json_parser.hpp
                           main.cpp)
 
 
@@ -44,5 +48,6 @@ add_executable(skyctr ${skyctr_core_SRC})
 
 target_include_directories(skyctr PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_include_directories(skyctr PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/easyloggingpp/src)
+target_include_directories(skyctr PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/tinyxml)
 
-target_link_libraries(skyctr PRIVATE gflags spdlog)
+target_link_libraries(skyctr PRIVATE gflags spdlog tinyxml2)

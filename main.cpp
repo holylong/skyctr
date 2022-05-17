@@ -16,6 +16,7 @@
 #include <skyctr_factory.hpp>
 #include <skyctr_manager.hpp>
 #include <skyctr_logger.hpp>
+#include <skyctr_vcxproj_parser.hpp>
 // #include <easylogging++.h>
 //read build tool file to memory and save to cmake file
 
@@ -41,7 +42,8 @@ std::string& getVersion() {
 }
 std::string& getHelp() {
   g_help = "help message \r\r\r\r\n\nskyctr meson.build -g cmake -o CMakeList.txt\n"
-           "skyctr -origin make -path Makefile -gen cmake -out CMakeList.txt";
+           "skyctr -origin make -path Makefile -gen cmake -out CMakeList.txt\n"
+           "skyctr -origin xml -path ..\\examples\\data\\xml\\styles.xml -gen cmake -out CMakeList.txt";
   return g_help;
 }
 
@@ -68,9 +70,14 @@ int main(int argc, char* argv[])
   }else if(FLAGS_origin == "meson"){
     manager->ParseMesonFile(FLAGS_path);
   }else if(FLAGS_origin == "vcxproj"){
-    manager->ParseVcxprojFile(FLAGS_path);
+      //std::unique_ptr<SkyctrVcxprojParser> parser(new SkyctrVcxprojParser());
+    //manager->ParseVcxprojFile(FLAGS_path, std::move(std::make_unique<SkyctrVcxprojParser>()));
+      //manager->ParseVcxprojFile(FLAGS_path, std::move(parser));
+      manager->ParseVcxprojFile(FLAGS_path);
   }else if(FLAGS_origin == "ninja"){
     manager->ParseNinjaFile(FLAGS_path);
+  }else if (FLAGS_origin == "xml") {
+      manager->ParseXmlFile(FLAGS_path);
   }
 
   if(FLAGS_gen == "cmake"){

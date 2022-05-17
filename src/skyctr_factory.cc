@@ -4,7 +4,7 @@
 namespace sky{
 namespace core{
         SkyctrManager* SkyctrFactory::makeSkyctrManager(){
-            return NULL;
+            return new SkyctrManager();
         }
     }
 }

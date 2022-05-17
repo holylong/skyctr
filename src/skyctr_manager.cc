@@ -6,15 +6,21 @@
 #include <spdlog/spdlog.h>
 #include <skyctr_vcxproj_parser.hpp>
 #include <skyctr_meson_parser.hpp>
+#include <skyctr_xml_parser.hpp>
 
 using namespace std;
 
 namespace sky{
     namespace core{
        
+        SkyctrManager::SkyctrManager(std::unique_ptr<SkyctrParser<int>> parser)
+        {
+            _parser = std::move(parser);
+        }
+
         SkyctrManager::SkyctrManager()
         {
-
+            
         }
 
         /**
@@ -46,7 +52,7 @@ namespace sky{
                 ifs.close();
             }
 
-            _parser = std::make_shared<SkyctrMesonParser>();
+            //_parser = std::make_unique<SkyctrMesonParser>();
             return Status_Ok;
         }
 
@@ -57,8 +63,30 @@ namespace sky{
          * @param in 
          * @return SkyStatus 
          */
-        SkyStatus SkyctrManager::ParseVcxprojFile(std::string in){
-            _parser = std::make_shared<SkyctrVcxprojParser>();
+        SkyStatus SkyctrManager::ParseVcxprojFile(std::string in, std::unique_ptr<SkyctrParser<int>> parser){
+            _parser = std::move(parser);
+            return Status_Ok;
+        }
+
+        SkyStatus SkyctrManager::ParseVcxprojFile(std::string in) {
+            //_parser = std::move(std::make_unique<SkyctrVcxprojParser>());
+            //_parser = std::make_unique<SkyctrVcxprojParser<int>>();
+            //_parser->ParseFile("a.txt");
+            _parser = std::make_unique<SkyctrVcxprojParser>();
+            _parser->PrintName();
+            _parser->ParseFile("a.txt");
+            return Status_Ok;
+        }
+
+
+        /*
+        
+        */
+        SkyStatus SkyctrManager::ParseXmlFile(std::string in)
+        {
+            _parser = std::make_unique<SkyctrXmlParser>();
+            _parser->PrintName();
+            _parser->ParseFile(in);
             return Status_Ok;
         }
 

@@ -8,15 +8,17 @@ namespace sky{
     //template<typename T>
     SkyStatus SkyctrVcxprojParser::ParseFile(const std::string path)
     {
-        //cout << "type:" << typeid(T).name << endl;
+        //cout << "type:" << typeid(T).name() << endl;
+        cout << "parse:" << path.c_str() << endl;
+        //½âÎöÎÄ¼þ
       return Status_Ok;
     }
 
     //template<typename T>
-    SkyctrVcxprojParser::SkyctrVcxprojParser()
-    {
-        //cout << "type:" << typeid(T).name << endl;
-    }
+    //SkyctrVcxprojParser<T>::SkyctrVcxprojParser()
+    //{
+    //    cout << "type:" << typeid(T).name() << endl;
+    //}
   }
 }
 

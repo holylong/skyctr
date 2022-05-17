@@ -22,9 +22,9 @@ namespace sky{
         class SkyctrVcxprojParser : public SkyctrParser<int>{
         public:
 
-            SkyctrVcxprojParser();
+            //SkyctrVcxprojParser();
 
-            virtual SkyStatus ParseFile(const std::string path);
+            SkyStatus ParseFile(const std::string path);
             
         };
     }
