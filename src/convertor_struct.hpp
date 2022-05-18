@@ -18,23 +18,24 @@
 
 namespace sky{
   namespace core{
+
+      enum SkyStatus {
+          Status_UnKnow,
+          Status_Ok,
+          Status_Error,
+          Status_ParseFileFailed
+      };
+
       typedef enum {
         Type_Error = -1,
         Type_Shared_Library = 0,
         Type_Static_Library = 1,
-        Type_Exec = 1
+        Type_Exec = 2
       }TargetType;
 
       typedef struct _TargetInfo{
         TargetType _target_type;
         std::string _target_name;
-      }TargetInfo;
-
-      class ConvertorStruct{
-      public:
-        ConvertorStruct();
-        /**project name*/
-        std::string              m_projectname;
         /**cxxflag**/
         std::vector<std::string> m_cxxflag;
         /**cflag**/
@@ -49,10 +50,29 @@ namespace sky{
         std::vector<std::string> m_libpath;
         /**链接库**/
         std::vector<std::string> m_library;
+        std::vector<std::string> m_header;
+      }TargetInfo;
+
+      class Target{
+      public:
+          Target();
+        
+        /**project name*/
+        std::string              m_projectname;
+      
         /**目标文件**/
         //std::vector<TargetInfo> m_targets;
         /**设置安装目录**/
         std::string              m_installpath;
+
+        std::vector<TargetInfo>  m_targets;
+
+        SkyStatus _status;
+
+        Target operator+(Target target) const;
+        Target& operator+=(Target& target);
+
+        void PrintAll();
     };
   }
 }

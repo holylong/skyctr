@@ -4,6 +4,7 @@
 // #include <skyctr_core.hpp>
 #include <skyctr_factory.hpp>
 #include <iostream>
+#include <convertor_struct.hpp>
 
 namespace sky{
     namespace core{
@@ -15,10 +16,11 @@ namespace sky{
 
                 void PrintName() { std::cout << "type name:" << typeid(T).name() << std::endl; }
 
-                virtual SkyStatus ParseFile(const std::string path) = 0;
+                virtual std::shared_ptr<Target> ParseFile(const std::string path) = 0;
 
 
             private:
+                //ConvertorStruct
                 T _name;
         };
     }

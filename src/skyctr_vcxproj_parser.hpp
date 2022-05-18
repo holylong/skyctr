@@ -15,6 +15,10 @@
 #include <iostream>
 #include <skyctr_parser.hpp>
 #include <skyctr_factory.hpp>
+#include <convertor_struct.hpp>
+#include <tinyxml2.h>
+
+//XMLDocument
 
 namespace sky{
     namespace core{
@@ -24,8 +28,17 @@ namespace sky{
 
             //SkyctrVcxprojParser();
 
-            SkyStatus ParseFile(const std::string path);
+            std::shared_ptr<Target> ParseFile(const std::string path);
             
+            std::shared_ptr<Target> QueryHeaders(tinyxml2::XMLDocument* doc);
+            std::shared_ptr<Target> QuerySources(tinyxml2::XMLDocument* doc);
+            std::shared_ptr<Target> QueryIncludes(tinyxml2::XMLDocument* doc);
+            std::shared_ptr<Target> QueryLibraries(tinyxml2::XMLDocument* doc);
+            std::shared_ptr<Target> QueryLibPaths(tinyxml2::XMLDocument* doc);
+            std::shared_ptr<Target> QueryCFlags(tinyxml2::XMLDocument* doc);
+            std::shared_ptr<Target> QueryCXXFlags(tinyxml2::XMLDocument* doc);
+
+            void PrintSample(tinyxml2::XMLDocument* doc);
         };
     }
 }

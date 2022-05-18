@@ -42,6 +42,7 @@ std::string& getVersion() {
 }
 //-origin xml -path ..\examples\data\xml\styles.xml -gen cmake -out CMakeList.txt
 //-origin vcxproj -path ..\examples\data\vcxproj\tinyxml2.vcxproj -gen cmake -out CMakeList.txt
+//-origin vcxproj -path ..\examples\data\vcxproj\2015Remote.vcxproj -gen cmake -out CMakeList.txt
 std::string& getHelp() {
   g_help = "help message \r\r\r\r\n\nskyctr meson.build -g cmake -o CMakeList.txt\n"
            "skyctr -origin make -path Makefile -gen cmake -out CMakeList.txt\n"

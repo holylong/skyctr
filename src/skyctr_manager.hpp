@@ -7,6 +7,7 @@
 #include <skyctr_vcxproj_parser.hpp>
 #include <skyctr_generator.hpp>
 #include <memory>
+#include <convertor_struct.hpp>
 
 namespace sky{
     namespace core{
@@ -32,6 +33,8 @@ namespace sky{
                 std::unique_ptr<SkyctrParser<int>> _parser;
                 //目标解决方案生成器
                 SkyctrGenerator<int> _generator;
+
+                std::shared_ptr<Target> _target;
                 
         };
     }

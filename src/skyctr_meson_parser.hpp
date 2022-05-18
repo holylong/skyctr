@@ -8,7 +8,7 @@ namespace sky{
         //template<typename T>
         class SkyctrMesonParser : public SkyctrParser<int>{
         public:
-            virtual SkyStatus ParseFile(const std::string path);
+            virtual std::shared_ptr<Target> ParseFile(const std::string path);
         };
     }
 }

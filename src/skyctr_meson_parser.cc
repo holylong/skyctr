@@ -7,7 +7,7 @@ using namespace tinyxml2;
 
 namespace sky {
 	namespace core {
-		SkyStatus SkyctrMesonParser::ParseFile(const std::string path)
+		std::shared_ptr<Target> SkyctrMesonParser::ParseFile(const std::string path)
 		{
 			cout << "parse:" << path.c_str() << endl;
 			XMLDocument doc;
@@ -16,7 +16,7 @@ namespace sky {
 			doc.Print();
 
 			cout << "errorid:" << doc.ErrorID() << endl;
-			return Status_Ok;
+			return NULL;
 		}
 	}
 }
