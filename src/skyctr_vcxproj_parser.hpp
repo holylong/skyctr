@@ -37,6 +37,7 @@ namespace sky{
             std::shared_ptr<Target> QueryLibPaths(tinyxml2::XMLDocument* doc);
             std::shared_ptr<Target> QueryCFlags(tinyxml2::XMLDocument* doc);
             std::shared_ptr<Target> QueryCXXFlags(tinyxml2::XMLDocument* doc);
+            std::shared_ptr<Target> QueryProps(tinyxml2::XMLDocument* doc);
 
             void PrintSample(tinyxml2::XMLDocument* doc);
         };

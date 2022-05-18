@@ -73,7 +73,8 @@ namespace sky{
                 ss << ")" << endl << endl;
             }
             ofstream ofs;
-            ofs.open(in, ios::ate);
+            //ofs.open(in, ios::ate);
+            ofs.open(in);
             ofs << ss.str();
             ofs.close();
             return Status_Ok;

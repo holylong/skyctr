@@ -66,6 +66,30 @@ namespace sky{
         res.get()->m_targets.push_back(info);
         return res;
     }
+
+    std::shared_ptr<Target> SkyctrVcxprojParser::QueryProps(tinyxml2::XMLDocument* doc)
+    {
+        shared_ptr<Target> res = make_shared<Target>();
+        //shared_ptr<Target> res = NULL;
+        XMLElement* root = doc->FirstChildElement("Project");
+
+        XMLElement* item = root->FirstChildElement("ImportGroup");
+        while (item != NULL) {
+            if (item->FirstChildElement("Import") != NULL) {
+                XMLElement* propsnode = item->FirstChildElement("Import");
+                while (propsnode != NULL) {
+                    string src = propsnode->Attribute("Project");
+                    spdlog::debug("==>> props:{}", src);
+                    //info.m_header.push_back(src);
+                    propsnode = propsnode->NextSiblingElement("Import");
+                }
+            }
+            item = item->NextSiblingElement("Import");
+        }
+
+        return res;
+    }
+
     std::shared_ptr<Target> SkyctrVcxprojParser::QuerySources(tinyxml2::XMLDocument* doc)          
     {
         shared_ptr<Target> res = make_shared<Target>();
@@ -197,7 +221,7 @@ namespace sky{
         XMLDocument doc;
         doc.LoadFile(path.c_str());
 
-        PrintSample(&doc);
+        //PrintSample(&doc);
 
         //shared_ptr<Target> art;
 
@@ -210,6 +234,13 @@ namespace sky{
             Target* artp = art.get();
             *artp += *(target.get());
         }
+
+        target = QueryProps(&doc);
+        if (art != NULL && target != NULL) {
+            Target* artp = art.get();
+            *artp += *(target.get());
+        }
+
         art->PrintAll();
         
         return art;
