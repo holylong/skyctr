@@ -212,7 +212,7 @@ namespace sky{
         }
         art->PrintAll();
         
-        return NULL;
+        return art;
     }
 
     //template<typename T>

@@ -32,7 +32,7 @@ namespace sky{
                 //源解决方案解析器
                 std::unique_ptr<SkyctrParser<int>> _parser;
                 //目标解决方案生成器
-                SkyctrGenerator<int> _generator;
+                std::unique_ptr<SkyctrGenerator<int>> _generator;
 
                 std::shared_ptr<Target> _target;
                 

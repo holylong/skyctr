@@ -5,9 +5,10 @@
 
 namespace sky{
     namespace core{
-        template<typename T>
-        class SkyctrCmakeGenerator : public SkyctrGenerator<T>{
-
+        //template<typename T>
+        class SkyctrCmakeGenerator : public SkyctrGenerator<int>{
+        public:
+            SkyStatus DumpFile(std::string in, std::shared_ptr<Target> art);
         };
     }
 }

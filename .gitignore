@@ -2,3 +2,5 @@
 build_ninja
 build
 build_vs  
+logs 
+examples/data/cmake 

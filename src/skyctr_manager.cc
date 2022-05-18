@@ -7,6 +7,7 @@
 #include <skyctr_vcxproj_parser.hpp>
 #include <skyctr_meson_parser.hpp>
 #include <skyctr_xml_parser.hpp>
+#include <skyctr_cmake_generator.hpp>
 
 using namespace std;
 
@@ -74,7 +75,7 @@ namespace sky{
             //_parser->ParseFile("a.txt");
             _parser = std::make_unique<SkyctrVcxprojParser>();
             _parser->PrintName();
-            _parser->ParseFile(in);
+            _target = _parser->ParseFile(in);
             return Status_Ok;
         }
 
@@ -130,6 +131,8 @@ namespace sky{
          * @return SkyStatus 
          */
         SkyStatus SkyctrManager::DumpCmakeFile(std::string in){
+            _generator = std::make_unique<SkyctrCmakeGenerator>();
+            _generator->DumpFile(in, _target);
             return Status_Ok;
         }
     }

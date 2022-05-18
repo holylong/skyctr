@@ -13,6 +13,8 @@ file(GLOB skyctr_core_SRC src/convertor_struct.hpp
                           src/convertor_struct.cc
                           src/skyctr_core.cc
                           src/skyctr_core.hpp
+                          src/skyctr_generator.cc
+                          src/skyctr_generator.hpp
                           src/skyctr_factory.cc
                           src/skyctr_factory.hpp
                           src/skyctr_manager.cc
