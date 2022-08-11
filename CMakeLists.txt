@@ -43,6 +43,7 @@ file(GLOB skyctr_core_SRC src/convertor_struct.hpp
                           src/skyctr_xml_parser.hpp
                           src/skyctr_json_parser.cc
                           src/skyctr_json_parser.hpp
+                          src/skyctr_str_util.hpp
                           main.cpp)
 
 
@@ -53,3 +54,5 @@ target_include_directories(skyctr PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/e
 target_include_directories(skyctr PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/tinyxml)
 
 target_link_libraries(skyctr PRIVATE gflags spdlog tinyxml2)
+
+add_subdirectory(examples)

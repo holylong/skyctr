@@ -15,6 +15,7 @@
 
 #include <vector>
 #include <iostream>
+#include <skyctr_str_util.hpp>
 
 namespace sky{
   namespace core{
@@ -72,7 +73,38 @@ namespace sky{
         Target operator+(Target target) const;
         Target& operator+=(Target& target);
 
+        void MergeCxxFlags();
+
+        void MergeIncludes();
+
         void PrintAll();
+
+        void Replace(const std::string& ch = "\\", const std::string& pl = "/")
+        {
+          SkyctrStrUtil::replace(m_installpath, ch, pl);
+          for(auto& target : m_targets)
+          {
+            for(auto& header: target.m_header){
+              SkyctrStrUtil::replace(header, ch, pl);
+            }
+
+            for(auto& source: target.m_source){
+              SkyctrStrUtil::replace(source, ch, pl);
+            }
+
+            for(auto& inc: target.m_include){
+              SkyctrStrUtil::replace(inc, ch, pl);
+            }
+
+            for(auto& lp: target.m_libpath){
+              SkyctrStrUtil::replace(lp, ch, pl);
+            }
+
+            for(auto& lib: target.m_library){
+              SkyctrStrUtil::replace(lib, ch, pl);
+            }
+          }
+        }
     };
   }
 }

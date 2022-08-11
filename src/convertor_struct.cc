@@ -1,5 +1,9 @@
 #include <convertor_struct.hpp>
 #include <spdlog/spdlog.h>
+#include <set>
+#include <map>
+#include <algorithm>
+
 /**
  * @brief 结局方案变量
  * 
@@ -65,6 +69,47 @@ namespace sky{
             }
 
             return *this;
+        }
+
+        void Target::MergeCxxFlags() {
+            vector<string> arrFlags;
+            for (auto& targetinfo : m_targets) {
+                for (auto& ti : targetinfo.m_cxxflag)
+                {
+                    SkyctrStrUtil::strsplit(arrFlags, ti, ";");
+                    ti = ti.erase();
+                }
+                //targetinfo.m_cxxflag.assign(arrFlags.begin(), arrFlags.end());
+                targetinfo.m_cxxflag.clear();
+                sort(arrFlags.begin(), arrFlags.end());
+                vector<string>::iterator it = std::unique(arrFlags.begin(), arrFlags.end());
+                arrFlags.erase(it, arrFlags.end());
+
+                for (auto& cxx : arrFlags) {
+                    if ("%(PreprocessorDefinitions)" != cxx)
+                        targetinfo.m_cxxflag.push_back(cxx);
+                }
+            }
+        }
+
+        void Target::MergeIncludes() {
+            vector<string> arrIncludes;
+            for (auto& targetinfo : m_targets) {
+                for (auto& ti : targetinfo.m_include)
+                {
+                    SkyctrStrUtil::strsplit(arrIncludes, ti, ";");
+                    ti = ti.erase();
+                }
+                //targetinfo.m_include.assign(arrIncludes.begin(), arrIncludes.end());
+                targetinfo.m_include.clear();
+               
+                std::set<string> st(arrIncludes.begin(), arrIncludes.end());
+                arrIncludes.assign(st.begin(), st.end());
+                for (auto& inc : arrIncludes) {
+                    if("%(PreprocessorDefinitions)" != inc)
+                    targetinfo.m_include.push_back(inc);
+                }
+            }
         }
 
         Target Target::operator+(Target target) const{

@@ -29,9 +29,10 @@ using namespace sky::core;
 
 
 DEFINE_string(origin, "vcxproj", "origin build file type");
-DEFINE_string(path, "All.vcxproj", "origin file path");
-DEFINE_string(out, "./", "output dir");
-DEFINE_string(gen, "cmake", "to build file");
+DEFINE_string(path, "All.vcxproj", "origin file");
+DEFINE_string(out, "CMakeLists.txt", "output file");
+DEFINE_string(gen, "cmake", "to build file type");
+DEFINE_string(license, "license", "license file");
 
 static std::string g_version;
 static std::string g_help;
@@ -43,10 +44,11 @@ std::string& getVersion() {
 //-origin xml -path ..\examples\data\xml\styles.xml -gen cmake -out CMakeList.txt
 //-origin vcxproj -path ..\examples\data\vcxproj\tinyxml2.vcxproj -gen cmake -out CMakeList.txt
 //-origin vcxproj -path ..\examples\data\vcxproj\2015Remote.vcxproj -gen cmake -out CMakeList.txt
-std::string& getHelp() {
-  g_help = "help message \r\r\r\r\n\nskyctr meson.build -g cmake -o CMakeList.txt\n"
-           "skyctr -origin make -path Makefile -gen cmake -out CMakeList.txt\n"
-           "skyctr -origin xml -path ..\\examples\\data\\xml\\styles.xml -gen cmake -out CMakeList.txt";
+std::string& getHelp(char* argv[]) {
+  g_help = "help message \r\r\r\r\n\nskyctr meson.build -g cmake -o CMakeList.txt\n";
+  g_help += std::string(argv[0]);
+  g_help += " -origin make -path Makefile -gen cmake -out CMakeLists.txt --license license.md\n";
+  g_help += " -origin xml -path ..\\examples\\data\\xml\\styles.xml -gen cmake -out CMakeLists.txt --license license.md";
   return g_help;
 }
 
@@ -56,7 +58,8 @@ int main(int argc, char* argv[])
   sky::InitLogger();
   sky::LoggerTest();
   SetVersionString(getVersion());
-  SetUsageMessage(getHelp());
+  SetUsageMessage(getHelp(argv));
+
   ParseCommandLineFlags(&argc, &argv, true);
   cout << "origin = " << FLAGS_origin << endl;
   cout << "path = " << FLAGS_path << endl;
@@ -84,7 +87,7 @@ int main(int argc, char* argv[])
   }
 
   if(FLAGS_gen == "cmake"){
-    manager->DumpCmakeFile(FLAGS_out);
+    manager->DumpCmakeFile(FLAGS_out, FLAGS_license);
   }
 
   //dump to dest file

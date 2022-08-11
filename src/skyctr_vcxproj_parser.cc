@@ -98,6 +98,7 @@ namespace sky{
         TargetInfo info;
         //res.get()->m_targets.push_back();
 
+        //project name
         XMLElement* item = root->FirstChildElement("PropertyGroup");
         while (item != NULL) {
             if (item->FirstChildElement("RootNamespace") != NULL) {
@@ -114,6 +115,7 @@ namespace sky{
             item = item->NextSiblingElement("PropertyGroup");
         }
 
+        //project type
         item = root->FirstChildElement("PropertyGroup");
         while (item != NULL) {
             if (item->FirstChildElement("ConfigurationType") != NULL) {
@@ -122,7 +124,7 @@ namespace sky{
                 if (strcmp(namenode->GetText(), "Application") == 0) {
                     info._target_type = Type_Exec;
                 }
-                else if (strcmp(namenode->GetText(), "StaticLibrary")) {
+                else if (strcmp(namenode->GetText(), "StaticLibrary") == 0) {
                     info._target_type = Type_Static_Library;
                 }
                 else if (strcmp(namenode->GetText(), "DynamicLibrary") == 0) {
@@ -132,6 +134,7 @@ namespace sky{
             item = item->NextSiblingElement("PropertyGroup");
         }
         
+        //project source
         item = root->FirstChildElement("ItemGroup");
         while(item != NULL){
             if (item->FirstChildElement("ClCompile") == NULL) {
@@ -159,6 +162,25 @@ namespace sky{
     std::shared_ptr<Target> SkyctrVcxprojParser::QueryIncludes(tinyxml2::XMLDocument* doc)          
     {
         shared_ptr<Target> res = make_shared<Target>();
+        //include dir
+        XMLElement* root = doc->FirstChildElement("Project");
+        TargetInfo info;
+        //project name
+        XMLElement* item = root->FirstChildElement("ItemDefinitionGroup");
+        XMLElement* compileNode;
+        while (item != NULL) {
+            if ((compileNode = item->FirstChildElement("ClCompile")) != NULL) {
+                XMLElement* namenode = compileNode->FirstChildElement("AdditionalIncludeDirectories");
+                if(namenode != NULL){
+                    spdlog::debug("==>> text:{}", namenode->GetText());
+                    info.m_include.push_back(namenode->GetText());
+                }
+            }
+            
+            item = item->NextSiblingElement("ItemDefinitionGroup");
+        }
+        res.get()->m_targets.push_back(info);
+        spdlog::debug("river ok");
         return res;
     }
     std::shared_ptr<Target> SkyctrVcxprojParser::QueryLibraries(tinyxml2::XMLDocument* doc)
@@ -178,6 +200,26 @@ namespace sky{
     std::shared_ptr<Target> SkyctrVcxprojParser::QueryCXXFlags(tinyxml2::XMLDocument* doc)
     {
         shared_ptr<Target> res = make_shared<Target>();
+        //include dir
+        XMLElement* root = doc->FirstChildElement("Project");
+        TargetInfo info;
+        //project name
+        XMLElement* item = root->FirstChildElement("ItemDefinitionGroup");
+        XMLElement* compileNode;
+        while (item != NULL) {
+            if ((compileNode = item->FirstChildElement("ClCompile")) != NULL) {
+                XMLElement* namenode = compileNode->FirstChildElement("PreprocessorDefinitions");
+                if (namenode != NULL) {
+                    spdlog::debug("==>> text:{}", namenode->GetText());
+                    info.m_cxxflag.push_back(namenode->GetText());
+                }
+            }
+
+            item = item->NextSiblingElement("ItemDefinitionGroup");
+        }
+        res.get()->m_targets.push_back(info);
+        spdlog::debug("river ok");
+        return res;
         return res;
     }
 
@@ -226,6 +268,7 @@ namespace sky{
         //shared_ptr<Target> art;
 
         auto art = QuerySources(&doc);
+        spdlog::debug("parse source ok");
         auto target = QueryHeaders(&doc);
         if (target == NULL && art == NULL)
             return NULL;
@@ -234,13 +277,33 @@ namespace sky{
             Target* artp = art.get();
             *artp += *(target.get());
         }
+        spdlog::debug("parse header ok");
 
+        target.reset();
         target = QueryProps(&doc);
         if (art != NULL && target != NULL) {
             Target* artp = art.get();
             *artp += *(target.get());
         }
+        spdlog::debug("parse props ok");
+        target.reset();
+        target = QueryIncludes(&doc);
+        target->MergeIncludes();
+        if (art != NULL && target != NULL) {
+            Target* artp = art.get();
+            *artp += *(target.get());
+        }
+        spdlog::debug("parse include ok");
 
+        target.reset();
+        target = QueryCXXFlags(&doc);
+        target->MergeCxxFlags();
+        if (art != NULL && target != NULL) {
+            Target* artp = art.get();
+            *artp += *(target.get());
+        }
+
+        spdlog::debug("parse props ok");
         art->PrintAll();
         
         return art;

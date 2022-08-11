@@ -130,9 +130,11 @@ namespace sky{
          * @param in 
          * @return SkyStatus 
          */
-        SkyStatus SkyctrManager::DumpCmakeFile(std::string in){
+        SkyStatus SkyctrManager::DumpCmakeFile(const std::string& in, const std::string& license){
             _generator = std::make_unique<SkyctrCmakeGenerator>();
-            _generator->DumpFile(in, _target);
+            std::shared_ptr<Target> tar = _target;
+            tar->Replace();
+            _generator->DumpFile(in, tar, license);
             return Status_Ok;
         }
     }

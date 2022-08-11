@@ -25,7 +25,7 @@ namespace sky{
 
                 SkyStatus ParseXmlFile(std::string in);
                 
-                SkyStatus DumpCmakeFile(std::string in);
+                SkyStatus DumpCmakeFile(const std::string& in, const std::string& license);
                 
 
             private:

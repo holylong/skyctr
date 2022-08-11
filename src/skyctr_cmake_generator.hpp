@@ -8,7 +8,7 @@ namespace sky{
         //template<typename T>
         class SkyctrCmakeGenerator : public SkyctrGenerator<int>{
         public:
-            SkyStatus DumpFile(std::string in, std::shared_ptr<Target> art);
+            SkyStatus DumpFile(std::string in, std::shared_ptr<Target> art,const std::string& license = "");
         };
     }
 }

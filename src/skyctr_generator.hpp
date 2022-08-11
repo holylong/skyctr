@@ -16,7 +16,7 @@ namespace sky{
         public:
             T getName(){return _name;}
 
-            virtual SkyStatus DumpFile(std::string in, std::shared_ptr<Target> art) = 0;
+            virtual SkyStatus DumpFile(std::string in, std::shared_ptr<Target> art, const std::string& license = "") = 0;
         private:
             T _name;
         };
