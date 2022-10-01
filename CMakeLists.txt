@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.11)
 
-project(skyctr)
+project(skyctr VERSION 0.1.0 LANGUAGES CXX C)
+
+# fixed json build error
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/gflags)
 # add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/easyloggingpp)
