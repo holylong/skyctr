@@ -6,6 +6,10 @@ skyctr configure -g cmake -o CMakeList.txt
 skyctr example.vcxproj -g cmake -o CMakeList.txt
 ````
 
+# vcxproj
+## 1.解析
+## 2.合成cmake
+
 # meson.build
 ## 1.解析
     解析meson.build所有编译选项到内存中
