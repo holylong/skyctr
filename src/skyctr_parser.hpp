@@ -4,6 +4,7 @@
 // #include <skyctr_core.hpp>
 #include <skyctr_factory.hpp>
 #include <iostream>
+#include <memory>
 #include <convertor_struct.hpp>
 
 namespace sky{

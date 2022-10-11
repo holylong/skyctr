@@ -17,7 +17,7 @@
 #include <skyctr_factory.hpp>
 #include <convertor_struct.hpp>
 #include <tinyxml2.h>
-
+#include <memory>
 //XMLDocument
 
 namespace sky{

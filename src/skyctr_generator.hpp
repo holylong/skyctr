@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <convertor_struct.hpp>
+#include <memory>
 
 /**
  * @brief 解决方案生成器
